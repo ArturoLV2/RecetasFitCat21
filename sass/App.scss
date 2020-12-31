@@ -1,0 +1,13 @@
+/** @format */
+@import "./Colores";
+@import "./Mixins";
+
+body {
+  background-color: #fff8e8;
+}
+
+@import "./Heder";
+
+@import "./Main/Main";
+
+@import "./Footer";
