@@ -68,6 +68,8 @@ const Producto = () => {
     comentarios,
     creado,
     descripcion,
+    Ingredientes,
+    Preparacion,
     empresa,
     nombre,
     url,
@@ -78,30 +80,29 @@ const Producto = () => {
   } = producto;
 
   // Administrar y validar los votos
-  const votarProducto = () => {
+  let votarProducto = () => {
     if (!usuario) {
       return router.push("/login");
     }
+    // Verificar si el usuario actual ha votado
+    if (haVotado.includes(usuario.uid)) return;
 
     // obtener y sumar un nuevo voto
     const nuevoTotal = votos + 1;
 
-    // Verificar si el usuario actual ha votado
-    if (haVotado.includes(usuario.uid)) return;
-
     // guardar el ID del usuario que ha votado
     const nuevoHaVotado = [...haVotado, usuario.uid];
-
-    //  Actualizar en la BD
-    DataBase.db.collection("productos").doc(id).update({
-      votos: nuevoTotal,
-      haVotado: nuevoHaVotado,
-    });
 
     // Actualizar el state
     guardarProducto({
       ...producto,
       votos: nuevoTotal,
+    });
+
+    //  Actualizar en la BD
+    DataBase.db.collection("productos").doc(id).update({
+      votos: nuevoTotal,
+      haVotado: nuevoHaVotado,
     });
 
     guardarConsultarDB(true); // hay un voto, por lo tanto consultar a la BD
@@ -204,6 +205,8 @@ const Producto = () => {
                 </p>
                 <img src={urlimagen} />
                 <p>{descripcion}</p>
+                <p>{Ingredientes}</p>
+                <p>{Preparacion}</p>
 
                 {usuario && (
                   <>
@@ -220,6 +223,16 @@ const Producto = () => {
                     </form>
                   </>
                 )}
+                <div className="ConteinerFrame">
+                  <iframe
+                    className="iframewatch"
+                    src={"https://www.youtube.com/embed/" + url}
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
 
                 <h2
                   css={css`
@@ -271,14 +284,9 @@ const Producto = () => {
                     margin-top: 5rem;
                   `}
                 >
-                  <p
-                    css={css`
-                      text-align: center;
-                    `}
-                  >
-                    {votos} Votos
-                  </p>
-
+                  <p>{votos} Votos</p>
+                  {/* Añadir usuarios */}
+                  
                   {usuario && <Boton onClick={votarProducto}>Votar</Boton>}
                 </div>
               </aside>

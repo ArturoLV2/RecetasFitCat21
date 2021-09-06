@@ -30,10 +30,10 @@ const Header = () => {
       ) : (
         <>
           <Link href="/login">
-            <span id="NavLogin">Login </span>
+            <span id="NavLogin">Inicia Sesión </span>
           </Link>
           <Link href="/crear-cuenta">
-            <span id="NavCreate">Crear Cuenta </span>
+            <span id="NavCreate">Registrate </span>
           </Link>
         </>
       )}

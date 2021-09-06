@@ -1,4 +1,6 @@
 /** @format */
+@import "../Colores";
+@import "../Mixins";
 
 .listado-productos {
   background-color: #f3f3f3;
@@ -12,10 +14,61 @@
 .bg-white {
   background-color: #fff;
 }
+
 main {
   display: grid;
+
+  @include Mobile-L {
+    grid-template-columns: repeat(1, 1fr);
+    .MuiTypography-displayBlock {
+      font-size: 20px;
+      font-family: 'kg_what_a_timeregular';
+    }
+    .MuiTypography-body2 {
+      font-size: 16px;
+    }
+    .MuiTypography-body1 {
+      font-size: 12px;
+    }
+  }
+  @include Tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include Laptop {
+    grid-template-columns: repeat(3, 1fr);
+  }
   grid-template-columns: repeat(4, 1fr);
   column-gap: 12px;
   max-width: 95%;
   margin: 0 auto;
+  .ItemIngredientes {
+    font-size: 17px;
+  }
+  .MuiTypography-paragraph {
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+  .YoutubeIcon {
+    color: #f44336;
+    .MuiSvgIcon-root {
+      width: 2.5em;
+      height: 2.5em;
+    }
+  }
+  .MuiSvgIcon-root {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  .ConteinerFrame {
+    display: grid;
+
+    .iframewatch {
+      width: 330px;
+      height: 200px;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }

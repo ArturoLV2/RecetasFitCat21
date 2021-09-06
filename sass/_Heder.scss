@@ -1,41 +1,68 @@
 /** @format */
-
+@import "./Mixins";
 header {
-	display: grid;
-	grid-template-columns: repeat(8, 1fr);
-	grid-template-rows: 2em 16em 2em 2em;
-	max-width: 100%;
-	row-gap: 10px;
-	text-align: center;
-	margin-bottom: 2em;
-	img {
-		max-width: 28em;
-		grid-row: 2;
-		margin-top: -4em;
-		grid-column: 1/9;
-		margin-right: auto;
-		margin-left: auto;
-	}
-	#NavFormItem {
-		grid-row: 4;
-		grid-column: 1/9;
-		margin-right: auto;
-		margin-left: auto;
-	}
-	#NavInicio {
-		grid-row: 3;
-		grid-column: 3;
-	}
-	#NavPopulares {
-		grid-row: 3;
-		grid-column: 4;
-	}
-	#NavLogin {
-		grid-row: 3;
-		grid-column: 5;
-	}
-	#NavCreate {
-		grid-row: 3;
-		grid-column: 6;
-	}
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 2em 16em 2em 2em;
+  max-width: 100%;
+  row-gap: 10px;
+  text-align: center;
+  margin-bottom: 2em;
+  img {
+    max-width: 28em;
+    grid-row: 2;
+    margin-top: -4em;
+    grid-column: 1/9;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  #NavFormItem {
+    grid-row: 4;
+    grid-column: 1/9;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  #NavInicio {
+    grid-row: 3;
+    grid-column: 3;
+  }
+  #NavPopulares {
+    grid-row: 3;
+    grid-column: 4;
+  }
+  #NavLogin {
+    grid-row: 3;
+    grid-column: 5;
+  }
+  #NavCreate {
+    grid-row: 3;
+    grid-column: 6;
+  }
+  @include Mobile-L {
+    grid-template-rows: 2em 16em 2em 2em 2em;
+
+    img {
+      max-width: 21em;
+      margin-top: -1em;
+    }
+    #NavInicio {
+      grid-row: 3;
+      grid-column: 1/3;
+    }
+    #NavFormItem {
+      grid-row: 5;
+    }
+    #NavPopulares {
+      grid-row: 3;
+      grid-column: 3/6;
+    }
+    #NavLogin {
+      grid-row: 3;
+      grid-column: 6/9;
+    }
+    #NavCreate {
+      grid-row: 4;
+      grid-column: 1/9;
+    }
+  }
 }

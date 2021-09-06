@@ -1,5 +1,5 @@
 /** @format */
-import "../App.css";
+import "../App.min.css";
 import App from "next/app";
 import DataBase, { FirebaseContext } from "../DataBase";
 import useAutenticacion from "../hooks/useAutenticacion";

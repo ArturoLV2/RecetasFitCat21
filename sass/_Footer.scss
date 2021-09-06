@@ -1,0 +1,20 @@
+footer {
+  text-align: center;
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #ffe0b24f;
+    box-shadow: -1px 6px 13px 0px black;
+    li {
+      img {
+        margin: 15px 0px 15px 0px;
+        max-width: 40px;
+      }
+    }
+  }
+  div {
+    background-color: #f4b61a;
+    color: #fff;
+    box-shadow: -1px 4px 9px 1px black;
+  }
+}

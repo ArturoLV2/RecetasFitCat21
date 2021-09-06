@@ -4,6 +4,7 @@ import React from "react";
 import Header from "./Header";
 import { Global, css } from "@emotion/core";
 import Head from "next/head";
+import Footer from "./Footer";
 
 const Layout = (props) => {
   return (
@@ -73,15 +74,12 @@ const Layout = (props) => {
           href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|Roboto+Slab:400,700&display=swap"
           rel="stylesheet"
         />
-      </Head>
-
-      <Header />
+        
+      </Head><Header />
 
       <main>{props.children}</main>
 
-      <footer>
-        <h1>Hola soy un footer</h1>
-      </footer>
+      <Footer></Footer>
     </>
   );
 };
